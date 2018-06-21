@@ -1,1 +1,44 @@
-//testing
+// // sample array
+// var todos = ['item 1', 'item 2', 'item 3']
+
+// // display toodos
+// function displayTodos(){
+//   console.log('my todos',todos);
+//   }
+
+// // add todos
+// function addTodos(newtodo){
+//   todos.push(newtodo);
+//   displaytodos();
+// }
+
+// // change todos
+// function changeTodos(position,newvalue){
+//   todos[position]=newvalue;
+//   displaytodos();
+// }
+
+// // delete todos
+// function deleteTodos(position){
+//   todos.splice(position,1);
+//   displaytodos();
+// }
+
+var todoList = {
+todos:['item 1','item 2','item 3','item 4'],
+displayTodos: function(){
+  console.log('my todos',this.todos)
+  },
+addTodos: function(newtodo){
+  this.todos.push(newtodo);
+  this.displayTodos();
+  },
+changeTodos: function(position,newvalue){
+  this.todos[position]=newvalue;
+  this.displayTodos();
+  },
+deleteTodos:function(position){
+  this.todos.splice(position,1);
+  this.displayTodos();
+  }
+}
