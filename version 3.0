@@ -1,20 +1,5 @@
 var todoList = {
 todos:[],
-displayTodos: function(){
-  if (this.todos.length === 0){
-    console.log('Your todo list is empty!')
-  }
-  else {console.log('my todos:')
-    for(var i=0; i < this.todos.length; i++){
-      if(this.todos[i].completed===true){
-      console.log('(x)',this.todos[i].todoText)
-      }
-      else{
-      console.log('()',this.todos[i].todoText)
-      }  
-    }
-  }
-},
 addTodos: function(todoText){
   this.todos.push({
   todoText:todoText,
@@ -64,21 +49,7 @@ toggleAll:function(){
   }
 };
 
-// //we want to get access to the display todos button
-// var displayTodosButton=document.getElementById('displaytodosbutton')
-// //we want to run display todos method, when someone clicks the display todos button
-// displayTodosButton.addEventListener('click',function(){ todoList.displayTodos()
-//   });
-
-// var toggleAllButton=document.getElementById('toggleallbutton')
-// toggleAllButton.addEventListener('click',function(){
-//   todoList.toggleAll()
-// });
-
 var handlers={
-  displayTodos:function(){
-    todoList.displayTodos()
-  },
   addTodos:function(){
     var addTodoTextInput = document.getElementById('addTodoTextInput');
     todoList.addTodos(addTodoTextInput.value);
@@ -112,18 +83,6 @@ var handlers={
 }
 
 var view= {
-// create parent Ul
-// clear the parent Ul
-
-// for loop to go through each todo
-// create child li
-
-// if
-// go through each todo with completed+ todo.text
-
-// else statement
-// append Li(child) into Ul(parent)
-  
   displayTodos:function(){
     var todosUl=document.querySelector('Ul');
     todosUl.innerHTML = '';
@@ -141,7 +100,6 @@ var view= {
       }
 
     todoLi.textContent= todoWithCompletion;
-    // todoLi.textContent=todoList.todos[i].textTodo;
     todosUl.appendChild(todoLi);
     }
   }
