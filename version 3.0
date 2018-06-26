@@ -20,23 +20,23 @@ addTodos: function(todoText){
   todoText:todoText,
   completed:false
     });
-  this.displayTodos();
+  view.displayTodos();
   },
 changeTodos: function(position,todoText){
   // this.todos[position]=todoText(newtodo)
   this.todos[position].todoText=todoText;
-  this.displayTodos();
+  view.displayTodos();
   },
 deleteTodos:function(position){
   this.todos.splice(position,1);
-  this.displayTodos();
+  view.displayTodos();
   },
 toggleCompleted: function(position){
   // this.todos[position].completed=
   // !this.todos[position].completed;
   var todo = this.todos[position];
   todo.completed= !todo.completed;
-  this.displayTodos();
+  view.displayTodos();
   },
 toggleAll:function(){
   var totalTodos = this.todos.length;
@@ -60,7 +60,7 @@ toggleAll:function(){
         this.todos[i].completed=true;
       }
     }
-    this.displayTodos();
+    view.displayTodos();
   }
 };
 
@@ -109,6 +109,42 @@ var handlers={
   toggleAll:function(){
     todoList.toggleAll()
   },
+}
+
+var view= {
+// create parent Ul
+// clear the parent Ul
+
+// for loop to go through each todo
+// create child li
+
+// if
+// go through each todo with completed+ todo.text
+
+// else statement
+// append Li(child) into Ul(parent)
+  
+  displayTodos:function(){
+    var todosUl=document.querySelector('Ul');
+    todosUl.innerHTML = '';
+
+    for (var i=0; i<todoList.todos.length;i++){
+      var todoLi=document.createElement('Li');
+      var todo =todoList.todos[i]
+      var todoWithCompletion='';
+    
+    if(todo.completed===true){
+      todoWithCompletion= '(x)'+todo.todoText
+      }
+    else{
+      todoWithCompletion= '()'+todo.todoText
+      }
+
+    todoLi.textContent= todoWithCompletion;
+    // todoLi.textContent=todoList.todos[i].textTodo;
+    todosUl.appendChild(todoLi);
+    }
+  }
 }
 
 
